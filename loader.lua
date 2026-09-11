@@ -2,41 +2,38 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-local BASE = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/main/Scripts/"
-
 local games = {
     [125927821145949] = {
-        file = "Mine%20A%20Mountain.lua",
+        raw = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/main/Scripts/Mine%20A%20Mountain.lua",
         key = "otw3ksubs"
     },
 
     [93978595733734] = {
-        file = "Violence%20District.lua"
+        raw = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/main/Scripts/Violence%20District.lua"
     },
 
     [107778070777162] = {
-        file = "Steal%20An%20Egg.lua",
+        raw = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/main/Scripts/Steal%20An%20Egg.lua",
         key = "dhubkeren"
     }
 }
 
-local entry = games[game.PlaceId]
+local data = games[game.PlaceId]
 
-if not entry then
-    game:GetService("Players").LocalPlayer:Kick(
-        "D-Hub Not Supported In This Game"
-    )
+if not data then
+    warn("[D-HUB] Game tidak didukung.")
     return
 end
 
-if entry.key then
-    getgenv().key = entry.key
+if data.key then
+    getgenv().key = data.key
 end
 
-local source = game:HttpGet(BASE .. entry.file)
+local source = game:HttpGet(data.raw)
+local scriptFunc, err = loadstring(source)
 
-local fn = loadstring(source)
-
-if fn then
-    fn()
+if not scriptFunc then
+    error("[D-HUB] Load error: " .. tostring(err))
 end
+
+return scriptFunc()
