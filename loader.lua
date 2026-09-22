@@ -15,7 +15,7 @@ local games = {
     [107778070777162] = {
         raw = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/main/Scripts/Steal%20An%20Egg.lua",
         key = "dhubkeren"
-    }
+    },
 
     [124216119978534] = {
         raw = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/refs/heads/main/Scripts/Ride%20A%20Pet.lua",
