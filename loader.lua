@@ -10,6 +10,7 @@ local games = {
 
     [93978595733734] = {
         raw = "https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/main/Scripts/Violence%20District.lua"
+        key = "otw3ksubs"
     },
 
     [107778070777162] = {
